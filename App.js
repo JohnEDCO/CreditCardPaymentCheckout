@@ -6,13 +6,10 @@
  */
 
 import React from 'react';
-import {Text } from 'react-native';
-
+import Navigator from './src/navigation/Navigator';
 
 function App() {
-  return (
-    <Text>Credit Card Checkout</Text>
-  );
+  return <Navigator />;
 }
 
 export default App;
