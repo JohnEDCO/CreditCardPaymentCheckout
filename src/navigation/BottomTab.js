@@ -4,12 +4,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
+  const totalItemsCar = useSelector((state) => state.car.totalItems);
+  
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={({route}) => ({
         tabBarShowLabel: false,
         tabBarIcon: ({focused}) => {
@@ -25,17 +29,13 @@ const BottomTab = () => {
           return (
             <View style={styles.containerIcon}>
               {route.name === 'Car' && (
-                <Text style={styles.textNumberItems}>0</Text>
+                <Text style={styles.textNumberItems}>{totalItemsCar}</Text>
               )}
               <Icon name={iconName} size={27.} color={'white'} />
             </View>
           );
         },
-        tabBarStyle: styles.tabStyle,
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: 'bold',
-        },
+        tabBarStyle: styles.tabStyle
       })}>
       <Tab.Screen name="CreditCards" component={HomeScreen} />
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
   containerIcon: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60,
-    marginTop: '50%',
+    height: '100%',
+    marginTop: 18,
     backgroundColor: 'transparent',
   },
   textNumberItems: {
     position: 'absolute',
-    top: 8,
+    top: -8,
     right: -8,
     padding: 2,
     width: 'auto',
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     height: 55,
     left: 14,
     right: 14,
-    marginRight: 9,
-    marginLeft: 9,
+    marginRight: 10,
+    marginLeft: 10,
     backgroundColor: '#68D391',
     borderColor: '#68D391',
     borderRadius: 15,
