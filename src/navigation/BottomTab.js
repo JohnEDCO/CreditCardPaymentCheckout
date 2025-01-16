@@ -4,20 +4,20 @@ import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
+import {colors, sizes} from '../styles/theme';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
-  const totalItemsCar = useSelector((state) => state.car.totalItems);
-  
+  const totalItemsCar = useSelector(state => state.car.totalItems);
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({route}) => ({
         tabBarShowLabel: false,
         tabBarIcon: ({focused}) => {
-          let iconName;          
+          let iconName;
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Car') {
@@ -28,14 +28,14 @@ const BottomTab = () => {
 
           return (
             <View style={styles.containerIcon}>
-              {route.name === 'Car' && (
+              {route.name === 'Car' && totalItemsCar !== 0 && (
                 <Text style={styles.textNumberItems}>{totalItemsCar}</Text>
               )}
-              <Icon name={iconName} size={27.} color={'white'} />
+              <Icon name={iconName} size={27} color={'white'} />
             </View>
           );
         },
-        tabBarStyle: styles.tabStyle
+        tabBarStyle: styles.tabStyle,
       })}>
       <Tab.Screen name="CreditCards" component={HomeScreen} />
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -58,12 +58,12 @@ const styles = StyleSheet.create({
     padding: 2,
     width: 'auto',
     minWidth: 17,
-    backgroundColor: 'black',
+    backgroundColor: colors.dark,
     fontSize: 10,
     fontWeight: 'bold',
     borderRadius: 10,
     textAlign: 'center',
-    color: '#afdc15',
+    color: colors.textSecondary,
     zIndex: 10,
   },
   tabStyle: {
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
     right: 14,
     marginRight: 10,
     marginLeft: 10,
-    backgroundColor: '#68D391',
-    borderColor: '#68D391',
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
     borderRadius: 15,
     shadowColor: '#000',
     shadowOffset: {
