@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { colors } from '../styles/theme'
 
 const HomeScreen = () => {  
   return (
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'gray',
+    backgroundColor: colors.light,
   },
 })
 

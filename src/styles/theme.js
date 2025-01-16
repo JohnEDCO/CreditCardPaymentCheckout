@@ -8,12 +8,13 @@ const colors = {
   secondary: '#afdc15',
   dark: '#000000',
   light: '#FFFFFF',
+  lightGrey: '#a3a3a2',
 };
 
 const sizes = {
   small: X * 0.05,
-  medium: X * 0.1,
-  large: X * 0.2,
+  medium: X * 0.07,
+  large: X * 0.1,
 };
 
 export {colors, sizes};
