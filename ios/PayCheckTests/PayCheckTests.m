@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface creditCardCheckoutTests : XCTestCase
+@interface PayCheckTests : XCTestCase
 
 @end
 
-@implementation creditCardCheckoutTests
+@implementation PayCheckTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

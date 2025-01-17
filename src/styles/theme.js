@@ -12,9 +12,12 @@ const colors = {
 };
 
 const sizes = {
-  small: X * 0.05,
-  medium: X * 0.07,
-  large: X * 0.1,
+  // small: 12,
+  small: X * 0.03,
+  // medium: 14,
+  medium: X * 0.04,
+  // large: 16,
+  large: X * 0.05,
 };
 
 export {colors, sizes};

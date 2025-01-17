@@ -29,11 +29,6 @@ const CustomButton = ({
           backgroundColor: '#28a745',
           borderColor: '#28a745',
         };
-      case 'danger':
-        return {
-          backgroundColor: '#dc3545',
-          borderColor: '#dc3545',
-        };
       default: // Primary
         return {
           backgroundColor: colors.primary,
@@ -65,8 +60,7 @@ const CustomButton = ({
 
 const styles = StyleSheet.create({
   button: {
-    height: 40,
-    minWidth: 150,
+    height: 35,
     maxWidth: 300,
     borderRadius: 17,
     justifyContent: 'center',

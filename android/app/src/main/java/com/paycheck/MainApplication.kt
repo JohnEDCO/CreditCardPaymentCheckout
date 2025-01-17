@@ -1,4 +1,4 @@
-package com.creditcardcheckout
+package com.paycheck
 
 import android.app.Application
 import com.facebook.react.PackageList

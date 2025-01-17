@@ -1,11 +1,9 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/home/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {useSelector} from 'react-redux';
-import {colors, sizes} from '../styles/theme';
+import {colors} from '../styles/theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +29,8 @@ const BottomTab = () => {
               {route.name === 'Car' && totalItemsCar !== 0 && (
                 <Text style={styles.textNumberItems}>{totalItemsCar}</Text>
               )}
-              <Icon name={iconName} size={27} color={'white'} />
+              {/* <Icon name={iconName} size={27} color={'white'} /> */}
+              <Text>{route.name}</Text>
             </View>
           );
         },
