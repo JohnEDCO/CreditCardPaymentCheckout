@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import HomeScreen from '../screens/home/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useSelector} from 'react-redux';
 import {colors} from '../styles/theme';
+import {iconCreditCard, iconHome, iconCart} from '../utils/staticData';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,34 +15,36 @@ const BottomTab = () => {
       initialRouteName="Home"
       screenOptions={({route}) => ({
         tabBarShowLabel: false,
-        tabBarIcon: ({focused}) => {
-          let iconName;
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Car') {
-            iconName = focused ? 'cart' : 'cart-outline';
-          } else if (route.name === 'CreditCards') {
-            iconName = focused ? 'card' : 'card-outline';
-          }
-
+        tabBarIcon: () => {
+          let iconName = selectIcon(route.name);
           return (
             <View style={styles.containerIcon}>
-              {route.name === 'Car' && totalItemsCar !== 0 && (
+              {route.name === 'Car' && totalItemsCar > 0 && (
                 <Text style={styles.textNumberItems}>{totalItemsCar}</Text>
               )}
-              {/* <Icon name={iconName} size={27} color={'white'} /> */}
-              <Text>{route.name}</Text>
+              <Image source={iconName} style={{width: 30, height: 30}} />
             </View>
           );
         },
         tabBarStyle: styles.tabStyle,
       })}>
-      <Tab.Screen name="CreditCards" component={HomeScreen} />
+      <Tab.Screen name="Credit Cards" component={HomeScreen} />
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Car" component={HomeScreen} />
     </Tab.Navigator>
   );
 };
+
+const selectIcon = routeName => {
+  if (routeName === 'Home') {
+    return iconHome;
+  } else if (routeName === 'Car') {
+    return iconCart;
+  } else if (routeName === 'Credit Cards') {
+    return iconCreditCard;
+  }
+};
+
 const styles = StyleSheet.create({
   containerIcon: {
     justifyContent: 'center',
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     borderRadius: 10,
     textAlign: 'center',
-    color: colors.textSecondary,
+    color: colors.secondary,
     zIndex: 10,
   },
   tabStyle: {

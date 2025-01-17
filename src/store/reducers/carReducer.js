@@ -17,8 +17,8 @@ const carReducer = (state = initialState, action) => {
       return {
         ...state,
         items: removeItemById(state.items, action.payload.id),
-        totalAmount: state.totalAmount - action.payload.price,
-        totalItems: state.totalItems - 1,
+        totalAmount: state.totalItems > 0 ? state.totalAmount - action.payload.price : 0,
+        totalItems: state.totalItems > 0 ? state.totalItems - 1 : 0,
       };
     case 'CLEAN_CAR':
       return {...state, items: [], totalItems: 0, totalAmount: 0};

@@ -1,3 +1,7 @@
+export const iconHome = require('../assets/icons/home.png');
+export const iconCart = require('../assets/icons/shopping_cart.png');
+export const iconCreditCard = require('../assets/icons/credit_card.png');
+
 import product1 from '../assets/images/products/product1.png';
 import product2 from '../assets/images/products/product2.png';
 import product3 from '../assets/images/products/product3.png';
@@ -49,7 +53,7 @@ export const products = [
       '1 Lightweight Moisturizer: Hydrates and protects the skin while keeping it shine-free.',
       '1 Instruction Manual: Step-by-step guide to maximize results and maintain clear skin.',
     ],
-    price: 18.90,
+    price: 18.9,
     image: product3,
   },
   {
@@ -69,44 +73,86 @@ export const products = [
   },
   {
     id: 5,
-    name: 'Product 5',
-    description: 'Product 5 description',
-    price: 50,
+    name: 'Wireless headbands DXR',
+    description:
+      'Wireless headbands offering superior sound quality, modern design, and exceptional comfort for extended use. Ideal for music, calls, and everyday wear with Bluetooth connectivity and long-lasting battery life.',
+    includesDescription: [
+      'Wireless headbands',
+      'USB charging cable',
+      'Carrying pouch',
+      'User manual',
+    ],
+    price: 11.57,
     image: product5,
   },
   {
     id: 6,
-    name: 'Product 6',
-    description: 'Product 6 description',
-    price: 60,
+    name: 'Rest glasses',
+    description:
+      'Comfortable and stylish rest glasses designed to reduce eye strain and improve relaxation. Perfect for screen time, reading, or unwinding with a lightweight and durable frame.',
+    includesDescription: [
+      'A pair of high-quality rest glasses with anti-strain lenses',
+      'A durable protective case to keep your glasses safe',
+      'A soft microfiber cleaning cloth for easy lens maintenance',
+      'A detailed user manual with care and usage instructions',
+    ],
+    price: 10,
     image: product6,
   },
   {
     id: 7,
-    name: 'Product 7',
-    description: 'Product 7 description',
-    price: 70,
+    name: 'Xbox controller',
+    description:
+      'Nourishing broccoli oil conditioner designed to hydrate and revitalize your hair. Leaves hair soft, shiny, and manageable while promoting overall scalp health with natural ingredients.',
+    includesDescription: [
+      'A 250ml bottle of broccoli oil conditioner with a pump dispenser',
+      'Detailed usage instructions printed on the bottle',
+      'List of natural ingredients and benefits for easy reference',
+      'Recyclable packaging for eco-friendly disposal',
+    ],
+    price: 9.89,
     image: product7,
   },
   {
     id: 8,
-    name: 'Product 8',
-    description: 'Product 8 description',
-    price: 80,
+    name: 'Xbox controller',
+    description:
+      'Ergonomic Xbox controller designed for precision and comfort. Features responsive buttons, immersive vibration feedback, and seamless compatibility for an enhanced gaming experience.',
+    includesDescription: [
+      'Wireless Xbox controller with a sleek ergonomic design',
+      'Two AA batteries for instant use out of the box',
+      'Quick-start guide with setup instructions',
+      'Warranty card for product support',
+    ],
+    price: 32.16,
     image: product8,
   },
   {
     id: 9,
-    name: 'Product 9',
-    description: 'Product 9 description',
-    price: 90,
+    name: 'Umbrela minimalist',
+    description:
+      'Durable and stylish umbrella designed to provide reliable protection from rain and sun. Features a sturdy frame, quick-open mechanism, and a comfortable handle for easy carrying.',
+    includesDescription: [
+      'A lightweight umbrella with a sturdy wind-resistant frame',
+      'Protective sleeve for convenient storage and portability',
+      'Comfortable non-slip handle for secure grip',
+      'User guide with care and maintenance tips',
+    ],
+    price: 5.55,
     image: product9,
   },
   {
     id: 10,
-    name: 'Product 10',
-    description: 'Product 10 description',
-    price: 100,
+    name: 'Umbrela Vintage',
+    description:
+      "Extra-large children's pool designed for maximum fun and play. Made from durable, puncture-resistant materials, it provides a spacious and safe environment for kids to enjoy water activities during sunny days",
+    includesDescription: [
+      'An extra-large inflatable pool with colorful, child-friendly designs',
+      'Heavy-duty repair patch kit for quick and easy puncture repairs',
+      'Detailed setup and maintenance instructions for hassle-free use',
+      'Sturdy storage box for convenient transport and off-season storage',
+    ],
+    price: 75.99,
     image: product10,
   },
 ];

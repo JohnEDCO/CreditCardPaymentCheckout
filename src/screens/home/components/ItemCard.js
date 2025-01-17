@@ -3,15 +3,16 @@ import React from 'react';
 import CustomButton from '../../../components/buttons/ButtonDefault';
 import {colors, sizes, X} from '../../../styles/theme';
 import {formatCurrency} from '../../../utils/utils';
+import useHome from '../../../store/actions/home';
 
 const ItemCard = ({product}) => {
-  console.log('Entra aqui');
+  const { addItemToCart, removeItemFromCart } = useHome();
 
+  const addItemToCart1 = () => {
+    addItemToCart(product);
+  };
   return (
-    <TouchableOpacity
-      activeOpacity={1}
-      touchSoundDisabled
-      style={styles.containerProduct}>
+    <TouchableOpacity activeOpacity={1} style={styles.containerProduct}>
       <View style={styles.containerImage}>
         <Image source={product.image} style={styles.image} />
       </View>
@@ -32,36 +33,15 @@ const ItemCard = ({product}) => {
       </Text>
       <CustomButton
         title="Add to Car"
-        onPress={() => {}}
-        style={{
-          width: 120,
-          height: 27,
-          alignSelf: 'center',
-          backgroundColor: colors.secondary,
-          color: colors.dark,
-        }}
-        textStyle={{
-          color: colors.dark,
-          fontWeight: '300',
-          fontSize: sizes.small + 1,
-          textAlign: 'center',
-        }}
+        onPress={()=> {addItemToCart1(product)}}
+        style={styles.buttonCard}
+        textStyle={styles.textButtonCard}
       />
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 5,
-    backgroundColor: colors.light,
-  },
   containerProduct: {
     justifyContent: 'space-evenly',
     width: X * 0.45,
@@ -105,6 +85,19 @@ const styles = StyleSheet.create({
   textDescription: {
     color: colors.lightGrey,
     paddingHorizontal: 7,
+  },
+  buttonCard: {
+    width: 120,
+    height: 27,
+    alignSelf: 'center',
+    backgroundColor: colors.secondary,
+    color: colors.dark,
+  },
+  textButtonCard: {
+    color: colors.dark,
+    fontWeight: '300',
+    fontSize: sizes.small + 1,
+    textAlign: 'center',
   },
 });
 export default ItemCard;

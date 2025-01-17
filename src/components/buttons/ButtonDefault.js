@@ -12,11 +12,9 @@ const CustomButton = ({
   onPress,
   style = {},
   textStyle = {},
-  isLoading = false,
   disabled = false,
-  variant = 'primary', // Variantes como 'primary', 'secondary', etc.
+  variant = 'primary',
 }) => {
-  // Colores según la variante
   const getButtonStyle = () => {
     switch (variant) {
       case 'secondary':
@@ -24,15 +22,10 @@ const CustomButton = ({
           backgroundColor: colors.dark,
           borderColor: colors.dark,
         };
-      case 'success':
-        return {
-          backgroundColor: '#28a745',
-          borderColor: '#28a745',
-        };
-      default: // Primary
+      default:
         return {
           backgroundColor: colors.primary,
-          borderColor: colors.primary
+          borderColor: colors.primary,
         };
     }
   };
@@ -48,12 +41,8 @@ const CustomButton = ({
     <TouchableOpacity
       style={buttonStyles}
       onPress={onPress}
-      disabled={disabled || isLoading}>
-      {isLoading ? (
-        <ActivityIndicator color="#fff" />
-      ) : (
-        <Text style={[styles.text, textStyle]}>{title}</Text>
-      )}
+      disabled={disabled}>
+      <Text style={[styles.text, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -66,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 0,
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
   },
   text: {
     color: '#fff',
