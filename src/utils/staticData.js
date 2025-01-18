@@ -27,6 +27,7 @@ export const products = [
     ],
     price: 12.99,
     image: product1,
+    units: 1,
   },
   {
     id: 2,
@@ -40,6 +41,7 @@ export const products = [
     ],
     price: 20.12,
     image: product2,
+    units: 1,
   },
   {
     id: 3,
@@ -55,6 +57,7 @@ export const products = [
     ],
     price: 18.9,
     image: product3,
+    units: 1,
   },
   {
     id: 4,
@@ -70,6 +73,7 @@ export const products = [
     ],
     price: 125.99,
     image: product4,
+    units: 1,
   },
   {
     id: 5,
@@ -84,6 +88,7 @@ export const products = [
     ],
     price: 11.57,
     image: product5,
+    units: 1,
   },
   {
     id: 6,
@@ -98,6 +103,7 @@ export const products = [
     ],
     price: 10,
     image: product6,
+    units: 1,
   },
   {
     id: 7,
@@ -112,6 +118,7 @@ export const products = [
     ],
     price: 9.89,
     image: product7,
+    units: 1,
   },
   {
     id: 8,
@@ -126,6 +133,7 @@ export const products = [
     ],
     price: 32.16,
     image: product8,
+    units: 1,
   },
   {
     id: 9,
@@ -140,6 +148,7 @@ export const products = [
     ],
     price: 5.55,
     image: product9,
+    units: 1,
   },
   {
     id: 10,
@@ -154,5 +163,6 @@ export const products = [
     ],
     price: 75.99,
     image: product10,
+    units: 1,
   },
 ];

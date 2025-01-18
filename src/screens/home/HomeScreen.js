@@ -6,7 +6,7 @@ import ItemCard from './components/ItemCard';
 
 const HomeScreen = () => {
   return (
-    <ScrollView>
+    <ScrollView style={{flex: 1, height: '100%'}}>
       <View style={styles.container}>
         {products.map((product, index) => (
           <ItemCard product={product} key={index} />
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 5,
-    marginBottom: 70,
+    paddingBottom: 70,
     backgroundColor: colors.light,
   },
 });

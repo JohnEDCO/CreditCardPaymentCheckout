@@ -22,6 +22,11 @@ const CustomButton = ({
           backgroundColor: colors.dark,
           borderColor: colors.dark,
         };
+      case 'tertiary':
+        return {
+          backgroundColor: colors.secondary,
+          borderColor: colors.secondary,
+        };
       default:
         return {
           backgroundColor: colors.primary,
@@ -33,8 +38,8 @@ const CustomButton = ({
   const buttonStyles = [
     styles.button,
     getButtonStyle(),
-    disabled && styles.disabled,
     style,
+    disabled && styles.disabled,
   ];
 
   return (
@@ -42,7 +47,9 @@ const CustomButton = ({
       style={buttonStyles}
       onPress={onPress}
       disabled={disabled}>
-      <Text style={[styles.text, textStyle]}>{title}</Text>
+      <Text style={[styles.text, textStyle, disabled && {color: colors.light}]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

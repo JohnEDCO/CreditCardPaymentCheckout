@@ -3,6 +3,8 @@ import {Dimensions} from 'react-native';
 export const X = Dimensions.get('window').width;
 export const Y = Dimensions.get('window').height;
 
+export const scaleFont = (size) => (X / 370) * size;
+
 const colors = {
   primary: '#68D391',
   secondary: '#afdc15',
@@ -12,12 +14,9 @@ const colors = {
 };
 
 const sizes = {
-  // small: 12,
-  small: X * 0.03,
-  // medium: 14,
-  medium: X * 0.04,
-  // large: 16,
-  large: X * 0.05,
+  small: scaleFont(12),
+  medium: scaleFont(14),
+  large: scaleFont(16),
 };
 
 export {colors, sizes};

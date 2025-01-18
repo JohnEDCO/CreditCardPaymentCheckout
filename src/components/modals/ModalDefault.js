@@ -11,17 +11,17 @@ const CustomModal = ({
   animationType = 'none',
 }) => {
   return (
-    <Modal visible={visible} transparent animationType={animationType}>
-      <View style={styles.overlay}>
-        <View style={[styles.modal, contentStyle]}>
-          {title && <Text style={styles.title}>{title}</Text>}
-          {children}
-          <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-            <Text style={styles.closeText}>Close</Text>
-          </TouchableOpacity>
+      <Modal visible={visible} transparent animationType={animationType} >
+        <View style={styles.overlay}>
+          <View style={[styles.modal, contentStyle]}>
+            {title && <Text style={styles.title}>{title}</Text>}
+            {children}
+            <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+              <Text style={styles.closeText}>Close</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </Modal>
+      </Modal>
   );
 };
 
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
   modal: {
     justifyContent: 'center',

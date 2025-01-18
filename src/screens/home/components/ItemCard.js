@@ -6,11 +6,7 @@ import {formatCurrency} from '../../../utils/utils';
 import useHome from '../../../store/actions/home';
 
 const ItemCard = ({product}) => {
-  const { addItemToCart, removeItemFromCart } = useHome();
-
-  const addItemToCart1 = () => {
-    addItemToCart(product);
-  };
+  const {addItemToCart} = useHome();
   return (
     <TouchableOpacity activeOpacity={1} style={styles.containerProduct}>
       <View style={styles.containerImage}>
@@ -33,7 +29,9 @@ const ItemCard = ({product}) => {
       </Text>
       <CustomButton
         title="Add to Car"
-        onPress={()=> {addItemToCart1(product)}}
+        onPress={() => {
+          addItemToCart(product);
+        }}
         style={styles.buttonCard}
         textStyle={styles.textButtonCard}
       />

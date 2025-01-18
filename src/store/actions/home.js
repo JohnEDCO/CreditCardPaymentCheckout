@@ -17,9 +17,16 @@ const useHome = () => {
     });
   };
 
+  const removeAllItemFromCart = item => {
+    dispatch({
+      type: 'REMOVE_ALL_ITEM',
+      payload: item,
+    });
+  };
   return {
     addItemToCart,
     removeItemFromCart,
+    removeAllItemFromCart
   };
 };
 
