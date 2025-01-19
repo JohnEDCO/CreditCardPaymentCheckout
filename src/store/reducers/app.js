@@ -7,7 +7,12 @@ const initialState = {
     isValid: false,
     message: 'Tarjeta no válida',
   },
-  modalInfo: {visible: false, title: '', content: ''},
+  modalInfo: {
+    visible: true,
+    title: 'Welcome to My technical test',
+    content:
+      'In this application you can see and buy different types of products. I hope you enjoy it.',
+  },
 };
 
 const appReducer = (state = initialState, action) => {
@@ -30,7 +35,11 @@ const appReducer = (state = initialState, action) => {
     case 'RESET_ICON_CARD':
       return {
         ...state,
-        iconCard: {icon: iconCardDefault, isValid: false, message: 'Tarjeta no válida'},
+        iconCard: {
+          icon: iconCardDefault,
+          isValid: false,
+          message: 'Tarjeta no válida',
+        },
       };
     case 'SHOW_MODAL_INFO':
       return {

@@ -2,6 +2,8 @@ import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 import {validateCard} from '../../utils/utils';
 import useApp from '../../store/actions/app';
+import {colors} from '../../styles/theme';
+
 const CustomInput = ({
   label,
   placeholder,
@@ -36,6 +38,7 @@ const CustomInput = ({
         onChangeText={handleTextChange}
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
+        placeholderTextColor={colors.lightGrey}
       />
     </View>
   );

@@ -10,8 +10,10 @@ import ButtonDefault from '../../../components/buttons/ButtonDefault';
 import {paymentService} from '../../../services/paymentService';
 import useApp from '../../../store/actions/app';
 import userCart from '../../../store/actions/cart';
+import { useNavigation } from '@react-navigation/native';
 
 const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
+  const navigation = useNavigation();
   const {showLoading, hideLoading, showModalInfo, resetIconCard} = useApp();
   const {cleanCar} = userCart();
   const {iconCard} = useSelector(state => state.app);
@@ -30,6 +32,7 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
       cardName: '',
       identificationNumber: '',
     });
+    resetIconCard();
   };
   const isValidForm = () => {
     if (
@@ -57,8 +60,8 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
         });
         cleanForm();
         cleanCar();
-        resetIconCard();
         refRBSheet.current.close();
+        navigation.navigate('Home');
       })
       .catch(error => {
         showModalInfo({
