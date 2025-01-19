@@ -63,3 +63,13 @@ export const validateCard = cardNumber => {
   const typeCard = detectTypeCard(cardNumber);
   return typeCard;
 };
+
+export const encryptData = data => {
+  const dataEncode = JSON.stringify(data);
+  return btoa(dataEncode);
+};
+
+export const decryptData = data => {
+  const dataDecode = atob(data);
+  return JSON.parse(dataDecode);
+};

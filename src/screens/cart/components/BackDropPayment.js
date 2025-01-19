@@ -10,11 +10,14 @@ import ButtonDefault from '../../../components/buttons/ButtonDefault';
 import {paymentService} from '../../../services/paymentService';
 import useApp from '../../../store/actions/app';
 import userCart from '../../../store/actions/cart';
+import usePayment from '../../../store/actions/payment';
 import {useNavigation} from '@react-navigation/native';
+import {encryptData} from '../../../utils/utils';
 
 const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
   const navigation = useNavigation();
   const {showLoading, hideLoading, showModalInfo, resetIconCard} = useApp();
+  const {addTransaction} = usePayment();
   const {cleanCar} = userCart();
   const {iconCard} = useSelector(state => state.app);
   const [form, setForm] = useState({
@@ -52,12 +55,18 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
   const makePayment = async () => {
     showLoading();
     await paymentService(form)
-      .then(response => {
+      .then(async response => {
         showModalInfo({
           title: 'Congratulations!',
           content: 'Your payment was successful',
           visible: true,
         });
+        await addTransaction(encryptData(JSON.stringify({
+          ...form,
+          status: true,
+          totalAmount: totalAmount,
+          totalItems: totalItems,
+        })));
         cleanForm();
         cleanCar();
         refRBSheet.current.close();
