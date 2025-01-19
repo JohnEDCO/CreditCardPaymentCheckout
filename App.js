@@ -7,13 +7,16 @@
 
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from './src/store/store';
+import {store, persistor} from './src/store/store';
 import Navigator from './src/navigation/Navigator';
+import {PersistGate} from 'redux-persist/integration/react';
 
 function App() {
   return (
     <Provider store={store}>
-      <Navigator />
+      <PersistGate persistor={persistor}>
+        <Navigator />
+      </PersistGate>
     </Provider>
   );
 }

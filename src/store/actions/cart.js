@@ -28,11 +28,17 @@ const useCart = () => {
       type: 'CLEAN_CAR',
     });
   };
+  const loadStateCart = () => {
+    dispatch({
+      type: 'LOAD_STATE_CART',
+    });
+  };
   return {
     addItemToCart,
     removeItemFromCart,
     removeAllItemFromCart,
-    cleanCar
+    cleanCar,
+    loadStateCart
   };
 };
 

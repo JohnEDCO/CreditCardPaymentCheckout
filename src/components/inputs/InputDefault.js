@@ -25,7 +25,6 @@ const CustomInput = ({
     }
     if (type === 'card') {
       setIconCard(validateCard(text));
-      onChangeText(text);
     }
   };
   return (
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
+    color: colors.dark,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
