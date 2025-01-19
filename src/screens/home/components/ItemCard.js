@@ -3,10 +3,10 @@ import React from 'react';
 import CustomButton from '../../../components/buttons/ButtonDefault';
 import {colors, sizes, X} from '../../../styles/theme';
 import {formatCurrency} from '../../../utils/utils';
-import useHome from '../../../store/actions/home';
+import useCart from '../../../store/actions/cart';
 
 const ItemCard = ({product}) => {
-  const {addItemToCart} = useHome();
+  const {addItemToCart} = useCart();
   return (
     <TouchableOpacity activeOpacity={1} style={styles.containerProduct}>
       <View style={styles.containerImage}>

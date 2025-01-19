@@ -3,11 +3,9 @@ import React, {useRef} from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault';
 import {colors, sizes, Y} from '../../../styles/theme';
 import {formatCurrency} from '../../../utils/utils';
-import useApp from '../../../store/actions/app';
 import BackDropPayment from './BackDropPayment';
 
 const InfoPayment = ({totalAmount, totalItems}) => {
-  const {showLoading, hideLoading} = useApp();
   const refRBSheet = useRef();
   return (
     <View style={styles.containerPayment}>

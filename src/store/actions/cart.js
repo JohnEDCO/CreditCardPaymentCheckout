@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux';
 
-const useHome = () => {
+const useCart = () => {
   const dispatch = useDispatch();
 
   const addItemToCart = item => {
@@ -36,4 +36,4 @@ const useHome = () => {
   };
 };
 
-export default useHome;
+export default useCart;

@@ -3,10 +3,10 @@ import {StyleSheet, Text, View, Image, Button} from 'react-native';
 import {formatCurrency} from '../../../utils/utils';
 import {colors, sizes} from '../../../styles/theme';
 import ButtonDefault from '../../../components/buttons/ButtonDefault';
-import useHome from '../../../store/actions/home';
+import useCart from '../../../store/actions/cart';
 
 const ItemHorizontal = ({product}) => {
-  const {addItemToCart, removeItemFromCart, removeAllItemFromCart} = useHome();
+  const {addItemToCart, removeItemFromCart, removeAllItemFromCart} = useCart();
   return (
     <View style={styles.container}>
       <View style={styles.containerImage}>

@@ -9,11 +9,11 @@ import {formatCurrency} from '../../../utils/utils';
 import ButtonDefault from '../../../components/buttons/ButtonDefault';
 import {paymentService} from '../../../services/paymentService';
 import useApp from '../../../store/actions/app';
-import useHome from '../../../store/actions/home';
+import userCart from '../../../store/actions/cart';
 
 const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
   const {showLoading, hideLoading, showModalInfo, resetIconCard} = useApp();
-  const {cleanCar} = useHome();
+  const {cleanCar} = userCart();
   const {iconCard} = useSelector(state => state.app);
   const [form, setForm] = useState({
     cardNumber: '',
