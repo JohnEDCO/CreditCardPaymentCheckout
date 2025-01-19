@@ -1,9 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useRef} from 'react';
 import ButtonDefault from '../../../components/buttons/ButtonDefault';
-import {colors, sizes} from '../../../styles/theme';
+import {colors, sizes, Y} from '../../../styles/theme';
 import {formatCurrency} from '../../../utils/utils';
+import useApp from '../../../store/actions/app';
+import BackDropPayment from './BackDropPayment';
+
 const InfoPayment = ({totalAmount, totalItems}) => {
+  const {showLoading, hideLoading} = useApp();
+  const refRBSheet = useRef();
   return (
     <View style={styles.containerPayment}>
       <View style={styles.contentInfoPayment}>
@@ -17,10 +22,11 @@ const InfoPayment = ({totalAmount, totalItems}) => {
       <ButtonDefault
         disabled={totalItems === 0}
         title="Pay Now"
-        onPress={() => {}}
+        onPress={() => refRBSheet.current.open()}
         style={styles.buttonPayment}
         textStyle={styles.textButtonPayment}
       />
+      <BackDropPayment refRBSheet={refRBSheet} totalAmount={totalAmount} totalItems={totalItems} />
     </View>
   );
 };

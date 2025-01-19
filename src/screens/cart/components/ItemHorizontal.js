@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   textButtonRemove: {
     color: colors.dark,
     fontSize: sizes.small - 2,
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
   }
 });
 

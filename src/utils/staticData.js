@@ -2,6 +2,10 @@ export const iconHome = require('../assets/icons/home.png');
 export const iconCart = require('../assets/icons/shopping_cart.png');
 export const iconCreditCard = require('../assets/icons/credit_card.png');
 
+export const iconVisa = require('../assets/icons/visa_card.png');
+export const iconMastercard = require('../assets/icons/master_card.png');
+export const iconCardDefault = require('../assets/icons/credit_card_default.png');
+
 import product1 from '../assets/images/products/product1.png';
 import product2 from '../assets/images/products/product2.png';
 import product3 from '../assets/images/products/product3.png';

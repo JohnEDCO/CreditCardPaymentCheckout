@@ -1,22 +1,22 @@
 import React from 'react';
 import {Modal, View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {colors, sizes} from '../../styles/theme';
-
+import useApp from '../../store/actions/app';
 const CustomModal = ({
   visible,
-  onClose,
   title,
-  children,
+  content,
   contentStyle = {},
   animationType = 'none',
 }) => {
+  const {hideModalInfo} = useApp();
   return (
       <Modal visible={visible} transparent animationType={animationType} >
         <View style={styles.overlay}>
           <View style={[styles.modal, contentStyle]}>
             {title && <Text style={styles.title}>{title}</Text>}
-            {children}
-            <TouchableOpacity onPress={onClose} style={styles.closeButton}>
+            <Text style={styles.content}>{content}</Text>
+            <TouchableOpacity onPress={hideModalInfo} style={styles.closeButton}>
               <Text style={styles.closeText}>Close</Text>
             </TouchableOpacity>
           </View>
@@ -49,19 +49,25 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     color: colors.dark,
     textAlign: 'center',
-    fontSize: sizes.medium - 1,
+    fontSize: sizes.medium,
     fontWeight: 'condensed',
+  },
+  content: {
+    color: colors.dark,
+    textAlign: 'center',
+    fontSize: sizes.small,
+    fontWeight: '400',
   },
   closeButton: {
     alignItems: 'center',
     width: 100,
-    padding: 10,
+    padding: 7,
     marginTop: 15,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.dark,
     borderRadius: 17,
   },
   closeText: {
-    color: '#fff',
+    color: colors.secondary,
     fontWeight: 'condensed',
   },
 });

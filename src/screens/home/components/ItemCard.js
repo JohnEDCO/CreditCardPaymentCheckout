@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   containerProduct: {
     justifyContent: 'space-evenly',
     width: X * 0.45,
-    height: 280,
+    height: 290,
     margin: 5,
     padding: 5,
     backgroundColor: colors.light,
@@ -85,9 +85,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
   },
   buttonCard: {
-    width: 120,
-    height: 27,
+    width: 'auto',
+    height: 'auto',
     alignSelf: 'center',
+    paddingVertical: 3,
     backgroundColor: colors.secondary,
     color: colors.dark,
   },

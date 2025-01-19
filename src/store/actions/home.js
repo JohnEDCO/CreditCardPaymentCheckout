@@ -23,10 +23,16 @@ const useHome = () => {
       payload: item,
     });
   };
+  const cleanCar = () => {
+    dispatch({
+      type: 'CLEAN_CAR',
+    });
+  };
   return {
     addItemToCart,
     removeItemFromCart,
-    removeAllItemFromCart
+    removeAllItemFromCart,
+    cleanCar
   };
 };
 
