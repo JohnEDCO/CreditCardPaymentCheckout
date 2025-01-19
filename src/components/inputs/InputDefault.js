@@ -13,11 +13,22 @@ const CustomInput = ({
   type = 'text',
   secureTextEntry = false,
   style = {},
+  maxLength = 500,
 }) => {
   const {setIconCard} = useApp();
-  
+
   const handleTextChange = text => {
-    if (keyboardType === 'numeric') {
+    if (type === 'dateCard') {
+      let formattedText = text.replace(/\D/g, '');
+      if (formattedText.length > 2) {
+        formattedText =
+          formattedText.slice(0, 2) + '/' + formattedText.slice(2, 4);
+      }
+      if (formattedText.length > 5) {
+        formattedText = formattedText.slice(0, 5);
+      }
+      onChangeText(formattedText);
+    } else if (keyboardType === 'numeric') {
       const filteredText = text.replace(/[^0-9]/g, '');
       onChangeText(filteredText);
     } else {
@@ -38,6 +49,7 @@ const CustomInput = ({
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
         placeholderTextColor={colors.lightGrey}
+        maxLength={maxLength}
       />
     </View>
   );

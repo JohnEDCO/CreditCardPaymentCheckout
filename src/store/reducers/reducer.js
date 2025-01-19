@@ -6,7 +6,7 @@ import { persistReducer } from 'redux-persist';
 
 const persistConfig = {
   key: 'car',
-  storage: AsyncStorage, // Usamos AsyncStorage para persistir el estado
+  storage: AsyncStorage,
 };
 
 const persistedReducer = persistReducer(persistConfig, carReducer);

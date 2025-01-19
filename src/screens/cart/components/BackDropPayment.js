@@ -10,7 +10,7 @@ import ButtonDefault from '../../../components/buttons/ButtonDefault';
 import {paymentService} from '../../../services/paymentService';
 import useApp from '../../../store/actions/app';
 import userCart from '../../../store/actions/cart';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
   const navigation = useNavigation();
@@ -106,14 +106,17 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
               onChangeText={text => {
                 handleChangeText('cardNumber', text);
               }}
+              maxLength={19}
             />
             <InputDefault
+              type="dateCard"
               placeholder="Expiration Date (MM/YY)"
               keyboardType="numeric"
               value={form.expirationDate}
               onChangeText={text => {
                 handleChangeText('expirationDate', text);
               }}
+              maxLength={5}
             />
             <InputDefault
               placeholder="CVC/CVV"
@@ -122,6 +125,7 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
               onChangeText={text => {
                 handleChangeText('cvc', text);
               }}
+              maxLength={3}
             />
             <InputDefault
               placeholder="Card Name"
@@ -138,6 +142,7 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
               onChangeText={text => {
                 handleChangeText('identificationNumber', text);
               }}
+              maxLength={11}
             />
           </View>
         </View>
