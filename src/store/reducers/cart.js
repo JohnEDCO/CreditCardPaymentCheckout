@@ -48,7 +48,10 @@ const AddItem = (items, itemSearch) => {
     existItem.units += 1;
     return items;
   } else {
-    return [...items, {...itemSearch}];
+    let itemSearchCopy = {...itemSearch};
+    const {id, image, name, price, units} = itemSearchCopy;
+    const newItem = {id, image, name, price, units};
+    return [...items, newItem];
   }
 };
 

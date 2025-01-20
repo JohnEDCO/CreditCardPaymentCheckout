@@ -8,7 +8,7 @@ const initialState = {
     message: 'Tarjeta no válida',
   },
   modalInfo: {
-    visible: true,
+    visible: 'none',
     title: 'Welcome to My technical test',
     content:
       'In this application you can see and buy different types of products. I hope you enjoy it.',
@@ -49,7 +49,7 @@ const appReducer = (state = initialState, action) => {
     case 'HIDE_MODAL_INFO':
       return {
         ...state,
-        modalInfo: {visible: false, title: '', content: ''},
+        modalInfo: {visible: 'none', title: '', content: ''},
       };
     default:
       return state;

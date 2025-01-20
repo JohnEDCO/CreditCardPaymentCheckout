@@ -13,61 +13,37 @@ import userCart from '../../../store/actions/cart';
 import usePayment from '../../../store/actions/payment';
 import {useNavigation} from '@react-navigation/native';
 import {encryptData} from '../../../utils/utils';
+import usePaymentForm from '../hooks/usePaymentForm';
 
-const BackDropPayment = ({refRBSheet, totalAmount, totalItems}) => {
+const BackDropPayment = ({refRBSheet, totalAmount, totalItems, items}) => {
   const navigation = useNavigation();
   const {showLoading, hideLoading, showModalInfo, resetIconCard} = useApp();
   const {addTransaction} = usePayment();
   const {cleanCar} = userCart();
   const {iconCard} = useSelector(state => state.app);
-  const [form, setForm] = useState({
-    cardNumber: '',
-    expirationDate: '',
-    cvc: '',
-    cardName: '',
-    identificationNumber: '',
-  });
-  const cleanForm = () => {
-    setForm({
-      cardNumber: '',
-      expirationDate: '',
-      cvc: '',
-      cardName: '',
-      identificationNumber: '',
-    });
-    resetIconCard();
-  };
-  const isValidForm = () => {
-    if (
-      form.cardNumber.length === 0 ||
-      form.expirationDate.length === 0 ||
-      form.cvc.length === 0 ||
-      form.cardName.length === 0 ||
-      form.identificationNumber.length === 0
-    ) {
-      return false;
-    }
-    return true;
-  };
-  const handleChangeText = (field, value) => {
-    setForm(prevForm => ({...prevForm, [field]: value}));
-  };
+  const {form, cleanForm, handleChangeText, isValidForm} = usePaymentForm();
+
   const makePayment = async () => {
-    showLoading();
+    showLoading();    
     await paymentService(form)
       .then(async response => {
+        await addTransaction(
+          encryptData(
+            JSON.stringify({
+              ...form,
+              status: true,
+              totalAmount: totalAmount,
+              totalItems: totalItems,
+              items: items
+            }),
+          ),
+        );
         showModalInfo({
-          title: 'Congratulations!',
-          content: 'Your payment was successful',
-          visible: true,
+          title: 'Summary',
+          visible: 'receipt',
         });
-        await addTransaction(encryptData(JSON.stringify({
-          ...form,
-          status: true,
-          totalAmount: totalAmount,
-          totalItems: totalItems,
-        })));
         cleanForm();
+        resetIconCard();
         cleanCar();
         refRBSheet.current.close();
         navigation.navigate('Home');

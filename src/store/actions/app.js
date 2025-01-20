@@ -3,9 +3,10 @@ import {useDispatch} from 'react-redux';
 const useApp = () => {
   const dispatch = useDispatch();
 
-  const showLoading = () => {
+  const showLoading = (modal) => {
     dispatch({
       type: 'SHOW_LOADING',
+      payload: modal,
     });
   };
 

@@ -25,7 +25,7 @@ const CartScreen = () => {
           )}
         </View>
       </ScrollView>
-      <InfoPayment totalAmount={totalAmount} totalItems={totalItems} />
+      <InfoPayment items={items} totalAmount={totalAmount} totalItems={totalItems} />
     </View>
   );
 };

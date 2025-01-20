@@ -5,7 +5,7 @@ import {colors, sizes, Y} from '../../../styles/theme';
 import {formatCurrency} from '../../../utils/utils';
 import BackDropPayment from './BackDropPayment';
 
-const InfoPayment = ({totalAmount, totalItems}) => {
+const InfoPayment = ({totalAmount, totalItems, items}) => {
   const refRBSheet = useRef();
   return (
     <View style={styles.containerPayment}>
@@ -24,7 +24,7 @@ const InfoPayment = ({totalAmount, totalItems}) => {
         style={styles.buttonPayment}
         textStyle={styles.textButtonPayment}
       />
-      <BackDropPayment refRBSheet={refRBSheet} totalAmount={totalAmount} totalItems={totalItems} />
+      <BackDropPayment refRBSheet={refRBSheet} totalAmount={totalAmount} totalItems={totalItems} items={items} />
     </View>
   );
 };
