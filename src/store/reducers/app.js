@@ -8,7 +8,7 @@ const initialState = {
     message: 'Tarjeta no válida',
   },
   modalInfo: {
-    visible: 'none',
+    visible: 'default',
     title: 'Welcome to My technical test',
     content:
       'In this application you can see and buy different types of products. I hope you enjoy it.',
