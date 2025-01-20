@@ -1,10 +1,23 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Requirements Dev
+1. **Node**: v22.13.0 (last version).
+
+2. **Java**: 19 (install java 19 and set the enviroment variables, both user and system, to the JAVA_HOME path.
+
+   For example -> JAVA_HOME set C:\Program Files\Java\jdk-19 
+   
+5. **Android Studio**: Configure the ANDROID_HOME environment variable with the sdk path.
+   
+   For example: C:\Users\USER_PC\AppData\Local\Android\Sdk
 
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+## Step 1: Install Dependencies
+
+First, Open the project with Visual Studio Code (VScode) from the _root_ of your React Native project run the following command **npm install**. This will install the project dependencies
+
+## Step 2: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -46,34 +59,44 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
 
-Now that you have successfully run the app, let's modify it.
+# Unit Tests with Jest
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------------|---------|----------|---------|---------|-------------------
+All files                 |   92.68 |    86.79 |    90.9 |   92.56 |                   
+ assets/icons             |     100 |      100 |     100 |     100 |                   
+  credit_card.png         |     100 |      100 |     100 |     100 |                   
+  credit_card_default.png |     100 |      100 |     100 |     100 |                   
+  home.png                |     100 |      100 |     100 |     100 |                   
+  master_card.png         |     100 |      100 |     100 |     100 |                   
+  shopping_cart.png       |     100 |      100 |     100 |     100 |                  
+  visa_card.png           |     100 |      100 |     100 |     100 |                   
+ assets/images/products   |     100 |      100 |     100 |     100 |                  
+  product1.png            |     100 |      100 |     100 |     100 |                  
+  product10.png           |     100 |      100 |     100 |     100 |                  
+  product2.png            |     100 |      100 |     100 |     100 |                  
+  product3.png            |     100 |      100 |     100 |     100 |                  
+  product4.png            |     100 |      100 |     100 |     100 |                  
+  product5.png            |     100 |      100 |     100 |     100 |                  
+  product6.png            |     100 |      100 |     100 |     100 |                  
+  product7.png            |     100 |      100 |     100 |     100 |                  
+  product8.png            |     100 |      100 |     100 |     100 |                  
+  product9.png            |     100 |      100 |     100 |     100 |                  
+ components/buttons       |   77.77 |    81.81 |     100 |   77.77 |                  
+  ButtonDefault.js        |   77.77 |    81.81 |     100 |   77.77 | 21-26            
+ components/inputs        |   88.88 |    82.35 |     100 |   88.88 |                  
+  InputDefault.js         |   88.88 |    82.35 |     100 |   88.88 | 28,38            
+ components/modals        |   85.71 |       90 |   66.66 |   85.71 |                  
+  ModalDefault.js         |     100 |      100 |     100 |     100 |                  
+  ModalDetailProduct.js   |   71.42 |       80 |      50 |   71.42 | 43,73            
+  ModalLoading.js         |     100 |      100 |     100 |     100 |                  
+ components/separators    |     100 |      100 |     100 |     100 |                  
+  Separator.js            |     100 |      100 |     100 |     100 |                  
+ services                 |     100 |      100 |     100 |     100 |                  
+  paymentService.js       |     100 |      100 |     100 |     100 |                  
+ styles                   |     100 |      100 |     100 |     100 |                  
+  theme.js                |     100 |      100 |     100 |     100 |                  
+ utils                    |   93.75 |    91.66 |     100 |   93.61 |                  
+  staticData.js           |     100 |      100 |     100 |     100 |                  
+  utils.js                |   92.68 |    91.66 |     100 |    92.5 | 50-52     
