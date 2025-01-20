@@ -36,7 +36,6 @@ const BottomTab = () => {
         },
         tabBarStyle: styles.tabStyle,
       })}>
-      <Tab.Screen name="Credit Cards" component={HomeScreen} options={{headerShown: false}} />
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen
         name="Cart"
