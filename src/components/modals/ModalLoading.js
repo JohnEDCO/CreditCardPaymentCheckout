@@ -7,9 +7,9 @@ const Loading = ({
   animationType = 'none',
 }) => {
   return (
-    <Modal visible={visible} transparent animationType={animationType}>
+    <Modal visible={visible} transparent animationType={animationType} testID='loading-modal'>
       <View style={styles.overlay}>
-        <ActivityIndicator color={colors.primary} size={40}  />
+        <ActivityIndicator color={colors.primary} size={40}  testID='loading-indicator'/>
       </View>
     </Modal>
   );

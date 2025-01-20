@@ -52,7 +52,7 @@ const BackDropPayment = ({refRBSheet, totalAmount, totalItems, items}) => {
         showModalInfo({
           title: 'Something went wrong',
           content: error.data.message,
-          visible: true,
+          visible: 'default',
         });
       });
     hideLoading();

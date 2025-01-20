@@ -2,7 +2,7 @@ import {iconVisa, iconMastercard, iconCardDefault} from './staticData';
 
 export const formatCurrency = value => {
   if (value === undefined) {
-    return '0.00';
+    return '$0.00';
   } 
   return value.toLocaleString('en-EN', {
     style: 'currency',

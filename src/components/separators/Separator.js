@@ -3,7 +3,7 @@ import React from 'react';
 import {colors} from '../../styles/theme';
 
 const Separator = ({ type = 'horizontal' }) => {
-  return <View style={styles.separator}></View>;
+  return <View style={styles.separator} testID='separator'></View>;
 };
 
 export default Separator;
