@@ -30,14 +30,14 @@ const ModalReceipt = ({
     <Modal visible={visible} transparent animationType={animationType}>
       <View style={styles.overlay}>
         <View style={[styles.modal, contentStyle]}>
-          <ScrollView style={{width: '100%', height:'auto'}}>
+          <ScrollView style={{width: '100%', height: 'auto'}}>
             {title && <Text style={styles.title}>{title}</Text>}
             <Separator />
             {dataLastTransaction !== null &&
               dataLastTransaction.items.map((item, index) => (
                 <View key={index} style={styles.contentItem}>
-                  <Text style={{backgroundColor: 'white'}}>{item.name}</Text>
-                  <Text style={{backgroundColor: 'white'}}>{item.units}</Text>
+                  <Text style={styles.textItem}>{item.name}</Text>
+                  <Text style={styles.textItem}>{item.units}</Text>
                   <Text style={styles.textItem}>
                     {formatCurrency(item.price)}
                   </Text>
@@ -47,16 +47,8 @@ const ModalReceipt = ({
 
             {dataLastTransaction !== null && (
               <View style={styles.containerTotalTransaction}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: '100%',
-                  }}>
-                  <Text style={{backgroundColor: 'white', fontWeight: 'bold'}}>
-                    Total
-                  </Text>
+                <View style={styles.contentTotal}>
+                  <Text style={styles.textItem}>Total</Text>
                   <Text style={styles.textItem}>
                     {dataLastTransaction.totalItems}
                   </Text>
@@ -64,9 +56,9 @@ const ModalReceipt = ({
                     {formatCurrency(dataLastTransaction.totalAmount)}
                   </Text>
                 </View>
-                <Text
-                  style={{width: '100%', marginTop: 10, fontWeight: 'bold'}}>
-                  Status Transaction: {dataLastTransaction.status ? 'Success' : 'Not Success'}
+                <Text style={styles.textStatusTransaction}>
+                  Status Transaction:{' '}
+                  {dataLastTransaction.status ? 'Success' : 'Not Success'}
                 </Text>
               </View>
             )}
@@ -104,12 +96,12 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   title: {
+    alignSelf: 'flex-start',
     marginBottom: 15,
     color: colors.dark,
-    textAlign: 'centelr',
+    textAlign: 'center',
     fontSize: sizes.medium,
     fontWeight: 'bold',
-    alignSelf: 'flex-start',
   },
   content: {
     color: colors.dark,
@@ -148,6 +140,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     padding: 10,
+  },
+  contentTotal: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
+  textStatusTransaction: {
+    width: '100%',
+    marginTop: 10,
+    fontWeight: 'bold',
   },
 });
 
