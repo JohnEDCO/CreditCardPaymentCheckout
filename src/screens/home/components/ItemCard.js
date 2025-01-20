@@ -5,10 +5,13 @@ import {colors, sizes, X} from '../../../styles/theme';
 import {formatCurrency} from '../../../utils/utils';
 import useCart from '../../../store/actions/cart';
 
-const ItemCard = ({product}) => {
+const ItemCard = ({product, setInfo}) => {
   const {addItemToCart} = useCart();
   return (
-    <TouchableOpacity activeOpacity={1} style={styles.containerProduct}>
+    <TouchableOpacity
+      activeOpacity={1}
+      style={styles.containerProduct}
+      onPress={() => setInfo({visible: true, product: product})}>
       <View style={styles.containerImage}>
         <Image source={product.image} style={styles.image} />
       </View>
